@@ -3,7 +3,7 @@ AudioVideoPlayerSample
 
 Sample project to play audio and video from MPEG4 file using MediaCodec
 
-Copyright (c) 2020 cityzz
+Copyright (c) 2020 cityzz  
 Copyright (c) 2014-2015 saki t_saki@serenegiant.com
 
  Licensed under the Apache License, Version 2.0 (the "License");
