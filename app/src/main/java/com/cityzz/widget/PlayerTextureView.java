@@ -1,8 +1,9 @@
-package com.serenegiant.widget;
+package com.cityzz.widget;
 /*
  * AudioVideoPlayerSample
  * Sample project to play audio and video from MPEG4 file using MediaCodec.
  *
+ * Copyright (c) 2020 cityzz
  * Copyright (c) 2014 saki t_saki@serenegiant.com
  *
  * File name: PlayerTextureView.java

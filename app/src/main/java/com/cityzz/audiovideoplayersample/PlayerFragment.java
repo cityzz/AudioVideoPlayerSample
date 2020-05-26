@@ -1,8 +1,9 @@
-package com.serenegiant.audiovideoplayersample;
+package com.cityzz.audiovideoplayersample;
 /*
  * AudioVideoPlayerSample
  * Sample project to play audio and video from MPEG4 file using MediaCodec.
  *
+ * Copyright (c) 2020 cityzz
  * Copyright (c) 2014 saki t_saki@serenegiant.com
  *
  * File name: PlayerFragment.java
@@ -27,10 +28,9 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
 
-import com.serenegiant.media.MediaMoviePlayer;
-import com.serenegiant.media.IFrameCallback;
-import com.serenegiant.media.MediaVideoPlayer;
-import com.serenegiant.widget.PlayerTextureView;
+import com.cityzz.media.MediaMoviePlayer;
+import com.cityzz.media.IFrameCallback;
+import com.cityzz.widget.PlayerTextureView;
 
 import android.app.Activity;
 import android.content.Context;

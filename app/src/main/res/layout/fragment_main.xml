@@ -3,6 +3,7 @@
  * AudioVideoPlayerSample
  * Sample project to play audio and video from MPEG4 file using MediaCodec.
  *
+ * Copyright (c) 2020 cityzz
  * Copyright (c) 2014 saki t_saki@serenegiant.com
  *
  * File name: fragment_main.xml
@@ -32,10 +33,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.serenegiant.audiovideoplayersample.PlayerFragment" >
+    tools:context="com.cityzz.audiovideoplayersample.PlayerFragment" >
 
-    <!-- com.serenegiant.widget.PlayerGLView -->
-    <com.serenegiant.widget.PlayerTextureView
+    <!-- com.cityzz.widget.PlayerGLView -->
+    <com.cityzz.widget.PlayerTextureView
         android:id="@+id/player_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

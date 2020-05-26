@@ -1,4 +1,4 @@
-package com.serenegiant.media;
+package com.cityzz.media;
 
 /**
  * callback interface

@@ -1,11 +1,12 @@
-package com.serenegiant.widget;
+package com.cityzz.audiovideoplayersample;
 /*
  * AudioVideoPlayerSample
  * Sample project to play audio and video from MPEG4 file using MediaCodec.
  *
+ * Copyright (c) 2020 cityzz
  * Copyright (c) 2014 saki t_saki@serenegiant.com
  *
- * File name: AspectRatioViewInterface.java
+ * File name: MainActivity.java
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +23,21 @@ package com.serenegiant.widget;
  * All files in the folder are under this Apache License, Version 2.0.
 */
 
-public interface AspectRatioViewInterface {
-    public void setAspectRatio(double aspectRatio);
-    public void onPause();
-    public void onResume();
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlayerFragment()).commit();
+		}
+	}
+
 }
