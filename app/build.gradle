@@ -10,7 +10,7 @@ android {
 
 	defaultConfig {
 		applicationId "com.cityzz.audiovideoplayersample"
-		minSdkVersion 18
+		minSdkVersion 26
 		targetSdkVersion versionTarget
 		versionCode versionCodeNum
 		versionName versionNameString
