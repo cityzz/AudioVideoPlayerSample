@@ -205,13 +205,13 @@ public class MediaMoviePlayer {
     }
 
 //================================================================================
-    private static final int TIMEOUT_USEC = 10000;	// 10msec
+    private static final int TIMEOUT_USEC = 10000;    // 10msec
 
     /*
      * STATE_CLOSED => [preapre] => STATE_PREPARED [start]
-     * 	=> STATE_PLAYING => [seek] => STATE_PLAYING
-     * 		=> [pause] => STATE_PAUSED => [resume] => STATE_PLAYING
-     * 		=> [stop] => STATE_CLOSED
+     *  => STATE_PLAYING => [seek] => STATE_PLAYING
+     *      => [pause] => STATE_PAUSED => [resume] => STATE_PLAYING
+     *      => [stop] => STATE_CLOSED
      */
     private static final int STATE_STOP = 0;
     private static final int STATE_PREPARED = 1;
@@ -408,8 +408,8 @@ public class MediaMoviePlayer {
         case REQ_QUIT:
             local_isRunning = false;
             break;
-//		case REQ_SEEK:
-//		case REQ_STOP:
+//        case REQ_SEEK:
+//        case REQ_STOP:
         default:
             synchronized (mSync) {
                 mSync.wait();
@@ -442,8 +442,8 @@ public class MediaMoviePlayer {
         case REQ_QUIT:
             local_isRunning = false;
             break;
-//		case REQ_PREPARE:
-//		case REQ_SEEK:
+//        case REQ_PREPARE:
+//        case REQ_SEEK:
         default:
             synchronized (mSync) {
                 mSync.wait();
@@ -512,7 +512,7 @@ public class MediaMoviePlayer {
         case REQ_QUIT:
             local_isRunning = false;
             break;
-//		case REQ_PAUSE:
+//        case REQ_PAUSE:
         default:
             synchronized (mSync) {
                 mSync.wait();

@@ -43,7 +43,7 @@ public class EGLBase {
 
     public static class EglSurface {
         private final EGLBase mEgl;
-        private EGLSurface mEglSurface = EGL14.EGL_NO_SURFACE;
+        private EGLSurface mEglSurface;
 
         EglSurface(EGLBase egl, Surface surface) {
             if (DEBUG) Log.i(TAG, "EglSurface:");
@@ -217,7 +217,7 @@ public class EGLBase {
                 EGL14.EGL_BLUE_SIZE, 8,
                 EGL14.EGL_ALPHA_SIZE, 8,
                 //EGL14.EGL_STENCIL_SIZE, 8,
-                EGL_RECORDABLE_ANDROID, 1,	// this flag need to recording of MediaCodec
+                EGL_RECORDABLE_ANDROID, 1,    // this flag need to recording of MediaCodec
                 with_depth_buffer ? EGL14.EGL_DEPTH_SIZE : EGL14.EGL_NONE,
                 with_depth_buffer ? 16 : 0,
                 EGL14.EGL_NONE

@@ -45,19 +45,18 @@ import android.widget.ImageButton;
 
 @SuppressWarnings("unused")
 public class PlayerFragment extends Fragment {
-    private static final boolean DEBUG = true;	// TODO set false on release
+    private static final boolean DEBUG = true;    // TODO set false on release
     private static final String TAG = "PlayerFragment";
 
     /**
      * for camera preview display
      */
-    private PlayerTextureView mPlayerView;	//	private PlayerGLView mPlayerView;
+    private PlayerTextureView mPlayerView;    // private PlayerGLView mPlayerView;
     /**
      * button for start/stop recording
      */
     private ImageButton mPlayerButton;
 
-//	private MediaVideoPlayer mPlayer;
     private MediaMoviePlayer mPlayer;
 
     public PlayerFragment() {
@@ -68,9 +67,9 @@ public class PlayerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        mPlayerView = (PlayerTextureView)rootView.findViewById(R.id.player_view);
+        mPlayerView = rootView.findViewById(R.id.player_view);
         mPlayerView.setAspectRatio(640 / 480.f);
-        mPlayerButton = (ImageButton)rootView.findViewById(R.id.play_button);
+        mPlayerButton = rootView.findViewById(R.id.play_button);
         mPlayerButton.setOnClickListener(mOnClickListener);
         return rootView;
     }
@@ -79,14 +78,12 @@ public class PlayerFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (DEBUG) Log.v(TAG, "onResume:");
-        mPlayerView.onResume();
     }
 
     @Override
     public void onPause() {
         if (DEBUG) Log.v(TAG, "onPause:");
         stopPlay();
-        mPlayerView.onPause();
         super.onPause();
     }
 
@@ -118,8 +115,7 @@ public class PlayerFragment extends Fragment {
             dir.mkdirs();
             final File path = new File(dir, "easter_egg_nexus9_small.mp4");
             prepareSampleMovie(path);
-            mPlayerButton.setColorFilter(0x7fff0000);	// turn red
-//			mPlayer = new MediaVideoPlayer(mPlayerView.getSurface(), mIFrameCallback);
+            mPlayerButton.setColorFilter(0x7fff0000);    // turn red
             mPlayer = new MediaMoviePlayer(mPlayerView.getSurface(), mIFrameCallback, true);
             mPlayer.prepare(path.toString());
         } catch (IOException e) {
@@ -132,7 +128,7 @@ public class PlayerFragment extends Fragment {
      */
     private void stopPlay() {
         if (DEBUG) Log.v(TAG, "stopRecording:mPlayer=" + mPlayer);
-        mPlayerButton.setColorFilter(0);	// return to default color
+        mPlayerButton.setColorFilter(0);    // return to default color
         if (mPlayer != null) {
             mPlayer.release();
             mPlayer = null;
@@ -149,12 +145,7 @@ public class PlayerFragment extends Fragment {
             final float aspect = mPlayer.getWidth() / (float)mPlayer.getHeight();
             final Activity activity = getActivity();
             if ((activity != null) && !activity.isFinishing())
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mPlayerView.setAspectRatio(aspect);
-                    }
-                });
+                activity.runOnUiThread(() ->  mPlayerView.setAspectRatio(aspect) );
             mPlayer.play();
         }
 
@@ -163,11 +154,8 @@ public class PlayerFragment extends Fragment {
             mPlayer = null;
             final Activity activity = getActivity();
             if ((activity != null) && !activity.isFinishing())
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mPlayerButton.setColorFilter(0);	// return to default color
-                    }
+                activity.runOnUiThread(() -> {
+                    mPlayerButton.setColorFilter(0);    // return to default color
                 });
         }
 

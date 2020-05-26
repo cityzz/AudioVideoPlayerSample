@@ -30,7 +30,7 @@ import android.view.Surface;
 import android.view.TextureView;
 
 public class PlayerTextureView extends TextureView
-    implements TextureView.SurfaceTextureListener, AspectRatioViewInterface {
+    implements TextureView.SurfaceTextureListener {
 
     private double mRequestedAspect = -1.0;
     private Surface mSurface;
@@ -46,14 +46,6 @@ public class PlayerTextureView extends TextureView
     public PlayerTextureView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setSurfaceTextureListener(this);
-    }
-
-    @Override
-    public void onPause() {
-    }
-
-    @Override
-    public void onResume() {
     }
 
     /**
